@@ -1,12 +1,22 @@
-import { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import { Outlet, useLocation } from 'react-router-dom';
-import { Spinner } from '@/components/ui/spinner';
+import { lazy, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+import { HeaderLayout } from "@/components/layouts";
+import { Spinner } from "@/components/ui/spinner";
+import { usePageRef } from "@/hooks/use-page-ref";
+
+const LandingRoute = lazy(() =>
+  import("./landing").then(({ LandingRoute }) => ({
+    default: LandingRoute,
+  })),
+);
 
 export const AppRoot = () => {
-  const location = useLocation();
+  const { pageRefs, navigateTo } = usePageRef();
+
   return (
     <>
+      <HeaderLayout pageRefs={pageRefs} navigateTo={navigateTo} />
       <Suspense
         fallback={
           <div className="flex size-full items-center justify-center">
@@ -14,11 +24,9 @@ export const AppRoot = () => {
           </div>
         }
       >
-        <ErrorBoundary
-          key={location.pathname}
-          fallback={<div>Something went wrong!</div>}
-        >
-          <Outlet />
+        <ErrorBoundary fallback={<div>Something went wrong!</div>}>
+          <LandingRoute />
+          <LandingRoute />
         </ErrorBoundary>
       </Suspense>
     </>
