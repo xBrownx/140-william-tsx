@@ -15,14 +15,20 @@ export const HomeRoute: React.FC<HomeRouteProps> = ({pageRef, navigateTo}) => {
       >
         <div className={`flex flex-row w-full h-full`}>
           <div className={`flex-1`}>
-          
+          IMAGE GOES HERE
           </div>
           
           <div className={`flex-1`}>
             <div className={`flex flex-column`}>
-              <h2>{CONST.title}</h2>
-              <p>{CONST.paragraph}</p>
-              <button>{CONST.button}</button>
+              <h2>
+                  {CONST.title}
+              </h2>
+              <p>
+                  {CONST.paragraph}
+              </p>
+              <button onClick={() => navigateTo("availability")}>
+                  {CONST.button}
+              </button>
             </div>
           </div>
         </div>
