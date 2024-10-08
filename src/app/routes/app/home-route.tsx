@@ -7,7 +7,7 @@ type HomeRouteProps = {
     navigateTo: (pageRef: string) => void;
 }
 
-export const HomeRoute: React.FC<HomeRouteProps> = ({pageRef, navigateTo}) => {
+export const HomeRoute: React.FC<HomeRouteProps> = ({ pageRef, navigateTo }) => {
     return (
       <section 
         ref={pageRef} 
@@ -32,6 +32,6 @@ export const HomeRoute: React.FC<HomeRouteProps> = ({pageRef, navigateTo}) => {
             </div>
           </div>
         </div>
-      </>
+      </section>
     );
 }
