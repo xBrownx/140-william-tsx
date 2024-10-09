@@ -107,8 +107,9 @@ export default [{
         }],
 
         "import/no-cycle": "error",
-        "linebreak-style": ["warn", "unix"],
+        "linebreak-style": ["off", "windows"],
         "react/prop-types": "off",
+        'endOfLine': 'off',
 
         "import/order": ["warn", {
             groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
@@ -133,7 +134,8 @@ export default [{
 
         "prettier/prettier": ["warn", {}, {
             usePrettierrc: true,
-        }],
+        },
+        ],
 
         "check-file/filename-naming-convention": ["error", {
             "**/*.{ts,tsx}": "KEBAB_CASE",
