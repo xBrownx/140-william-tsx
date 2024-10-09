@@ -1,0 +1,1 @@
+import * as React from 'react';type LinkProps = {    children: React.ReactNode;    onClick: (e: React.MouseEvent) => void;};export const Link: React.FC<LinkProps> = ({ children, onClick }) => {    return <button onClick={onClick}>{children}</button>;};

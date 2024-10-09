@@ -1,27 +1,1 @@
-import * as React from 'react';
-import { amenitiesConst } from '@/app/constants';
-import { amenitiesAssets } from '@/assets';
-import Video from '@/components/ui/video';
-
-type AmenitiesRouteProps = {
-    pageRef: React.Ref<any>;
-}
-
-export const AmenitiesRoute: React.FC<AmenitiesRouteProps> = ({ pageRef }) => {
-  return (
-    <section 
-        ref={pageRef} 
-        className={``}
-      >
-        <div className={`flex flex-row w-full h-full`}>
-          <div className={`flex-1`}>
-
-          </div>
-          
-          <div className={`flex-1`}>
-           
-          </div>
-        </div>
-      </section>
-  );
-}
+import * as React from 'react';import { amenitiesAssets as ASSETS } from '@/assets';import { useNavigationContext } from '@/context/navigation-context';import { amenitiesConst as CONST } from 'src/constants';export const AmenitiesRoute: React.FC = () => {    const { pageRefs } = useNavigationContext();    return (        <section className={`h-screen w-screen`} ref={pageRefs.amenities}>            <div                className={`box-border flex size-full flex-row gap-32 overflow-hidden px-40 py-32`}            ></div>        </section>    );};

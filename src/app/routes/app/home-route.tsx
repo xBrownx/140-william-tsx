@@ -1,37 +1,1 @@
-import * as React from 'react';
-import { homeConst as CONST } from '@/app/constants';
-import { homeAssets as ASSETS } from '@/assets';
-
-type HomeRouteProps = {
-    pageRef: React.Ref<any>;
-    navigateTo: (pageRef: string) => void;
-}
-
-export const HomeRoute: React.FC<HomeRouteProps> = ({ pageRef, navigateTo }) => {
-    return (
-      <section 
-        ref={pageRef} 
-        className={``}
-      >
-        <div className={`flex flex-row w-full h-full`}>
-          <div className={`flex-1`}>
-          IMAGE GOES HERE
-          </div>
-          
-          <div className={`flex-1`}>
-            <div className={`flex flex-column`}>
-              <h2>
-                  {CONST.title}
-              </h2>
-              <p>
-                  {CONST.paragraph}
-              </p>
-              <button onClick={() => navigateTo("availability")}>
-                  {CONST.button}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-}
+import * as React from 'react';import { homeAssets as ASSETS } from '@/assets';import { useNavigationContext } from '@/context/navigation-context';import { homeConst as CONST } from 'src/constants';export const HomeRoute: React.FC = () => {    const { pageRefs } = useNavigationContext();    return (        <section            ref={pageRefs.home}            className={`box-border h-screen w-screen overflow-hidden bg-background-primary`}        >            <div                className={`box-border flex size-full flex-row gap-32 overflow-hidden px-40 py-32`}            >                <div className={`box-border flex flex-1 justify-end`}>                    <img                        src={ASSETS.img.hero.src}                        alt={ASSETS.img.hero.src}                        className={`h-full w-auto rounded-lg`}                    />                </div>                <div className={`flex flex-1 flex-col justify-center`}>                    <div className={`flex w-[35rem] flex-col gap-8 pl-[1.1]`}>                        <h2                            className={`font-[SuisseIntl-Regular] text-base font-normal leading-[1.2rem] text-font-primary-full`}                        >                            {CONST.title}                        </h2>                        <p                            className={`font-[SuisseIntl-Regular] text-4xl font-normal text-font-primary-light`}                        >                            {CONST.paragraph}                        </p>                        <button                            className={`flex w-fit rounded-lg border border-background-secondary px-8 py-4`}                        >                            <p                                className={`font-[SuisseIntl-Regular] text-base font-normal text-font-primary-full`}                            >                                {CONST.button}                            </p>                        </button>                    </div>                </div>            </div>        </section>    );};

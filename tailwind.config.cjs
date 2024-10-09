@@ -13,6 +13,11 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        secondary: {
+          light: ['SuisseIntl-Light', 'sans-serif'],
+          regular: [],
+          bold: []
+        },
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
@@ -20,7 +25,15 @@ module.exports = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: {
-          primary: '#162425'
+          primary: '#ded9d0',
+          secondary: '#162425',
+        },
+        font: {
+          primary: {
+            full: "#164A49",
+            light: "rgba(22, 74, 73, 0.70);"
+          },
+          secondary: "",
         },
         foreground: 'hsl(var(--foreground))',
         progress: '#DED9D0',

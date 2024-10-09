@@ -1,30 +1,1 @@
-import React from 'react';
-
-type HeaderProps = {
-    pageRefs: any;
-    navigateTo: (pageRef: any) => void;
-};
-
-export const HeaderLayout: React.FC<HeaderProps> = ({
-    pageRefs,
-    navigateTo,
-}) => {
-    const landing = pageRefs.landing;
-    return (
-        <div className="absolute z-40 box-border h-24 w-full overflow-hidden bg-background-primary">
-            <div className="box-border flex size-full flex-row items-center justify-between overflow-hidden">
-                <div className="box-border size-full">
-                    <p className="box-border">hello</p>
-                </div>
-
-                <div className="box-border flex size-full items-center justify-end">
-                    <p className="box-border justify-center">is it me</p>
-                    <p className="box-border">is it me</p>
-                    <p className="box-border">is it me</p>
-                    <p className="box-border">is it me</p>
-                    <p className="box-border">is it me</p>
-                </div>
-            </div>
-        </div>
-    );
-};
+import React from 'react';import headerLogo from '@/assets/header-logo.svg';import { Link } from '@/components/ui/link';import { useNavigationContext } from '@/context/navigation-context';import { headerConst } from 'src/constants';const links = headerConst.links;type Key = keyof typeof links;const Logo = () => {    const { navigateToPage } = useNavigationContext();    return (        <Link onClick={() => navigateToPage('landing')}>            <img src={headerLogo} alt="business-logo" />        </Link>    );};export const HeaderLayout: React.FC = () => {    const { navigateToPage } = useNavigationContext();    return (        <div className="fixed z-40 box-border h-[5.625rem] w-full overflow-hidden px-8">            <div className="box-border flex size-full flex-row items-center justify-between overflow-hidden">                <Logo />                <div className="box-border flex size-full items-center justify-end">                    <ul className={`flex flex-row gap-8`}>                        {Object.keys(links).map((key) => {                            return (                                <li key={key}>                                    <Link                                        onClick={() => {                                            console.log('you clicked me');                                            navigateToPage(key);                                        }}                                    >                                        <p                                            className={`font-[SuisseIntl-Light] text-lg font-normal uppercase text-white`}                                        >                                            {links[key as Key].text}                                        </p>                                    </Link>                                </li>                            );                        })}                    </ul>                </div>            </div>        </div>    );};
