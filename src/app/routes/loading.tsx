@@ -2,14 +2,13 @@ import * as React from 'react';
 
 import logo from '@/assets/large-logo.png';
 import { fadeInOut, swipeInOutUp } from '@/components/configs';
+import { useInitialLoadContext } from '@/context/initial-load-context';
 import { useLoadingTransition } from '@/hooks/use-loading-transition';
 import { ProgressBar } from 'src/components/ui/progress-bar';
-import { useInitialLoadContext } from '@/context/initial-load-context';
-
 
 export const LoadingScreen: React.FC = () => {
     const [imgDimen, setImageDimen] = React.useState({ width: 0, height: 0 });
-    const {isLoadComplete} = useInitialLoadContext();
+    const { isLoadComplete } = useInitialLoadContext();
 
     const { progress, transitionComplete, loadingComplete } =
         useLoadingTransition();
