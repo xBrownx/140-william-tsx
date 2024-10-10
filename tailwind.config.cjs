@@ -35,6 +35,7 @@ module.exports = {
         background: {
           primary: '#ded9d0',
           secondary: '#162425',
+          modal: 'rgba(22, 74, 73, 0.3)'
         },
         font: {
           primary: {
@@ -96,6 +97,9 @@ module.exports = {
         'infinite-scroll': 'infinite-scroll 45s linear infinite',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      gap: {
+        'avail': '0.76%'
+      }
     },
   },
   plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],

@@ -1,42 +1,1 @@
-import React from 'react';
-
-type InitialLoadContextProviderProps = {
-    children: React.ReactNode;
-};
-
-type InitialLoadContextProps = {
-    isLoadComplete: boolean;
-    setLoadComplete: (loadComplete: boolean) => void;
-};
-
-const InitialLoadContext = React.createContext<InitialLoadContextProps | null>(
-    null,
-);
-
-export const useInitialLoadContext = () => {
-    const initialLoadContext = React.useContext(InitialLoadContext);
-    if (!initialLoadContext) {
-        throw new Error(
-            'initialLoadContext has to be used within <InitialLoadContext.Provider>',
-        );
-    }
-
-    return initialLoadContext;
-};
-
-export const InitialLoadContextProvider: React.FC<
-    InitialLoadContextProviderProps
-> = ({ children }) => {
-    const [isLoadComplete, setLoadComplete] = React.useState(false);
-
-    return (
-        <InitialLoadContext.Provider
-            value={{
-                isLoadComplete,
-                setLoadComplete,
-            }}
-        >
-            {children}
-        </InitialLoadContext.Provider>
-    );
-};
+import React from 'react';type InitialLoadContextProviderProps = {    children: React.ReactNode;};type InitialLoadContextProps = {    isLoadComplete: boolean;    setTransitionComplete: (transitionComplete: boolean) => void;    progress: number;    transitionComplete: boolean;};const InitialLoadContext = React.createContext<InitialLoadContextProps | null>(    null,);export const useInitialLoadContext = () => {    const initialLoadContext = React.useContext(InitialLoadContext);    if (!initialLoadContext) {        throw new Error(            'initialLoadContext has to be used within <InitialLoadContext.Provider>',        );    }    return initialLoadContext;};export const InitialLoadContextProvider: React.FC<    InitialLoadContextProviderProps> = ({ children }) => {    const [isLoadComplete, setLoadComplete] = React.useState(false);    const [progress, setProgress] = React.useState(0);    const [transitionComplete, setTransitionComplete] = React.useState(false);    React.useEffect(() => {        let x = 0;        const interval = setInterval(() => {            setProgress((prevState) => {                x = prevState + 25;                if (x >= 100) {                    x = 100;                    setTimeout(() => setLoadComplete(true), 1000);                    clearInterval(interval);                    return x;                }                return x > 100 ? 100 : x;            });        }, 800);        return () => clearInterval(interval);    }, []);    React.useEffect(() => {        if (isLoadComplete) {            setTimeout(() => setTransitionComplete(true), 3000);        }    }, [isLoadComplete]);    return (        <InitialLoadContext.Provider            value={{                isLoadComplete,                setTransitionComplete,                progress,                transitionComplete,            }}        >            {children}        </InitialLoadContext.Provider>    );};

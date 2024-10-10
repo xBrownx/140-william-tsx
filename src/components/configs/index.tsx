@@ -1,1 +1,1 @@
-export * from './anim';
+export * from './anim';export * from './availability-config';

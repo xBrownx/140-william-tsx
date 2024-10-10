@@ -8,6 +8,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   box-sizing: border-box;
+  background-color: #fff;
 }
 
 *::-webkit-scrollbar {
@@ -109,7 +110,7 @@ code {
 }
 
 @font-face {
-    font-family: 'SuisseIntl-Regular';
+    font-family: ' ';
     src: local('SuisseIntl-Regular'), url(./assets/fonts/SuisseIntl-Regular.ttf) format('truetype');
 }
 

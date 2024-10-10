@@ -95,6 +95,7 @@ export default [{
                 from: "./src/app",
             }, {
                 target: [
+                    "./src/constants",
                     "./src/components",
                     "./src/hooks",
                     "./src/lib",
