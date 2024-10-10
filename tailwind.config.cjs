@@ -12,12 +12,20 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'nav-gradient': 'linear-gradient(#000 0 0, #FFF 0 0)',
+        'availability': "url('https://140-william-assets.s3.ap-southeast-2.amazonaws.com/images/availability/availability-background-optimised.jpg')",
+      },
+      backgroundSize: {
+        'nav-size': '0 2px',
+        'nav-size-hover': '100% 2px',
+      },
       fontFamily: {
-        secondary: {
-          light: ['SuisseIntl-Light', 'sans-serif'],
-          regular: [],
-          bold: []
-        },
+        primaryLight: ['TWKEverett-Light', 'sans-serif'],
+        primaryRegular: ['TWKEverett-Regular', 'sans-serif'],
+        secondaryLight: ['SuisseIntl-Light', 'sans-serif'],
+        secondaryRegular: ['SuisseIntl-Regular', 'sans-serif'],
+        secondaryBold: ['SuisseIntl-Bold', 'sans-serif'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
@@ -34,6 +42,9 @@ module.exports = {
             light: "rgba(22, 74, 73, 0.70);"
           },
           secondary: "",
+        },
+        button: {
+          primary: "#164A49",
         },
         foreground: 'hsl(var(--foreground))',
         progress: '#DED9D0',
@@ -72,9 +83,9 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+        'infinite-scroll': {
+          from: { transform: 'translateX(0%)' },
+          to: { transform: 'translateX(-100%)' },
         },
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
@@ -82,7 +93,7 @@ module.exports = {
         },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
+        'infinite-scroll': 'infinite-scroll 45s linear infinite',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
