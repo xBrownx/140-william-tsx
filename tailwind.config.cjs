@@ -15,6 +15,7 @@ module.exports = {
       backgroundImage: {
         'nav-gradient': 'linear-gradient(#000 0 0, #FFF 0 0)',
         'availability': "url('https://140-william-assets.s3.ap-southeast-2.amazonaws.com/images/availability/availability-background-optimised.jpg')",
+        'availability-mobile': "url('https://140-william-assets.s3.ap-southeast-2.amazonaws.com/images/availability/mobile-background-optimised.jpg')",
       },
       backgroundSize: {
         'nav-size': '0 2px',
