@@ -1,12 +1,12 @@
 {
-  "homepage": "https://xbrownx.github.io/",
+  "homepage": "https://140williams.com.au/",
   "name": "140-william-ts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --cname 140williams.com.au",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "check-types": "tsc --project tsconfig.json --pretty --noEmit",
