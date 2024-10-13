@@ -21,6 +21,12 @@ module.exports = {
         'nav-size': '0 2px',
         'nav-size-hover': '100% 2px',
       },
+      boxShadow: {
+        'modal': '0 4px 30px rgba(0, 0, 0, 0.4)',
+      },
+      filter: {
+        'location-button': 'invert(20%) sepia(82%) saturate(370%) hue-rotate(130deg) brightness(94%) contrast(92%)',
+      },
       fontFamily: {
         primaryLight: ['TWKEverett-Light', 'sans-serif'],
         primaryRegular: ['TWKEverett-Regular', 'sans-serif'],
@@ -87,7 +93,7 @@ module.exports = {
       keyframes: {
         'infinite-scroll': {
           from: { transform: 'translateX(0%)' },
-          to: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(-50%)' },
         },
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
@@ -95,8 +101,7 @@ module.exports = {
         },
       },
       animation: {
-        'infinite-scroll': 'infinite-scroll 45s linear infinite',
-        'accordion-up': 'accordion-up 0.2s ease-out',
+        'infinite-scroll': 'infinite-scroll 15s linear infinite',
       },
       gap: {
         'avail': '0.76%'
