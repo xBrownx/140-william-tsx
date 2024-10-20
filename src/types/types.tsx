@@ -1,1 +1,1 @@
-export type ImageType = {    src: string;    alt: string;};export type VideoType = {    src: string;};
+export type ImageType = {    src: string;    alt: string;};export type ImageKey = keyof ImageType;export type VideoType = {    src: string;};
